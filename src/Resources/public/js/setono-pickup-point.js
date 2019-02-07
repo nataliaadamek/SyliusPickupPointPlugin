@@ -37,8 +37,8 @@
           },
           onSuccess: function (response) {
             addPickupPoints($container, response);
-            $('.ui.fluid.selection.dropdown').dropdown('setting', 'onChange', function () {
-              let id = ($('.ui.fluid.selection.dropdown').dropdown('get value'));
+            $('.ui.radio.checkbox').checkbox('setting', 'onChange', function () {
+              let id = ($('.ui.radio.checkbox').checkbox('get value'));
               $(".pickup-point-id").val(id);
             });
           },
@@ -58,12 +58,10 @@
   }
 
   function addPickupPoints($container, pickupPoints) {
-    if (document.querySelector('.ui.fluid.selection.dropdown') == null) {
-      let list = '<div class="ui fluid selection dropdown pickup-point-dropdown" style="width:250px">' +
-        '<input type="hidden" name="pickupPoint">' +
-        '<i class="dropdown icon"></i>' +
-        '<div class="default text">Select Pickup Point</div>' +
-        '<div class="menu">'
+    if (document.querySelector('.ui.radio.checkbox') == null) {
+      let list = '<div class="ui radio checkbox pickup-point-dropdown" style="width:250px">' +
+        '<input type="radio" name="pickupPoint">' +
+        '<div class="hidden">'
       ;
 
       pickupPoints.forEach(function (element) {
@@ -81,13 +79,13 @@
 
       $container.find('.content').append(list);
 
-      let $dropdown = $('.ui.fluid.selection.dropdown');
+      let $checkbox = $('.ui.radio.checkbox');
 
-      $dropdown.dropdown();
+      $checkbox.checkbox();
 
       let id = $(".pickup-point-id").val();
 
-      $dropdown.dropdown('set selected', id);
+      $checkbox.checkbox('set selected', id);
     }
   }
 })(jQuery);
