@@ -43,6 +43,22 @@ class GlsProviderMocker implements ProviderInterface
                 'city' => 'Nice City',
                 'country' => 'Nice City',
             ],
+            [
+                'id' => self::PICKUP_POINT_ID,
+                'name' => 'test',
+                'address' => 'test2',
+                'zipCode' => '12345',
+                'city' => 'Nice City',
+                'country' => 'Nice City',
+            ],
+            [
+                'id' => self::PICKUP_POINT_ID,
+                'name' => 'Other place',
+                'address' => 'Point',
+                'zipCode' => '12345',
+                'city' => 'Other City',
+                'country' => 'Other Country',
+            ],
         ];
     }
 

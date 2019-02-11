@@ -9,5 +9,5 @@ use Sylius\Behat\Page\Shop\Checkout\SelectShippingPageInterface as BaseSelectShi
 
 interface SelectShippingPageInterface extends BaseSelectShippingPageInterface
 {
-    public function chooseFirstShippingPointFromDropdown(): void;
+    public function chooseFirstShippingPointFromCheckbox(): void;
 }

@@ -8,17 +8,17 @@ use Sylius\Behat\Page\Shop\Checkout\SelectShippingPage as BaseSelectShippingPage
 
 final class SelectShippingPage extends BaseSelectShippingPage implements SelectShippingPageInterface
 {
-    public function chooseFirstShippingPointFromDropdown(): void
+    public function chooseFirstShippingPointFromCheckbox(): void
     {
         $this->getDocument()->waitFor(5, function () {
-            return $this->hasElement('pickup_point_dropdown');
+            return $this->hasElement('pickup_point_checkbox');
         });
 
-        $dropdown = $this->getElement('pickup_point_dropdown');
+        $checkbox = $this->getElement('pickup_point_checkbox');
 
-        $dropdown->click();
+        $checkbox->click();
 
-        $item = $this->getElement('pickup_point_dropdown_item', [
+        $item = $this->getElement('pickup_point_checkbox_item', [
             '%value%' => '001',
         ]);
 
@@ -28,8 +28,8 @@ final class SelectShippingPage extends BaseSelectShippingPage implements SelectS
     protected function getDefinedElements(): array
     {
         return array_merge(parent::getDefinedElements(), [
-            'pickup_point_dropdown' => '.pickup-point-dropdown',
-            'pickup_point_dropdown_item' => '.pickup-point-dropdown div.item[data-value="%value%"]',
+            'pickup_point_checkbox' => '.pickup-point-checkbox',
+            'pickup_point_checkbox_item' => '.pickup-point-checkbox div.item[data-value="%value%"]',
         ]);
     }
 }
