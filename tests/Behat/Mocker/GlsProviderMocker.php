@@ -36,7 +36,7 @@ class GlsProviderMocker implements ProviderInterface
     {
         return [
             [
-                'id' => self::PICKUP_POINT_ID,
+                'id' => '1',
                 'name' => 'Somewhere',
                 'address' => 'Rainbow',
                 'zipCode' => '12345',
@@ -44,7 +44,7 @@ class GlsProviderMocker implements ProviderInterface
                 'country' => 'Nice City',
             ],
             [
-                'id' => self::PICKUP_POINT_ID,
+                'id' => '2',
                 'name' => 'test',
                 'address' => 'test2',
                 'zipCode' => '12345',
@@ -52,8 +52,16 @@ class GlsProviderMocker implements ProviderInterface
                 'country' => 'Nice City',
             ],
             [
-                'id' => self::PICKUP_POINT_ID,
+                'id' => '3',
                 'name' => 'Other place',
+                'address' => 'Point',
+                'zipCode' => '12345',
+                'city' => 'Other City',
+                'country' => 'Other Country',
+            ],
+            [
+                'id' => '4',
+                'name' => '4 place',
                 'address' => 'Point',
                 'zipCode' => '12345',
                 'city' => 'Other City',
@@ -66,7 +74,7 @@ class GlsProviderMocker implements ProviderInterface
     {
         return new PickupPoint(
             self::PICKUP_POINT_ID,
-            'Somewher',
+            'Somewhere',
             'Rainbow',
             '12345',
             'Nice City',
