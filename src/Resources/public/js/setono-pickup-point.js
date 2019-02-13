@@ -20,6 +20,14 @@
                     return;
                 }
 
+                if($container.checked) {
+                    $container.find('.item').show();
+                }
+
+                if($container.unchecked) {
+                    $container.find('.item').hide();
+                }
+
                 $element.api({
                     method: 'GET',
                     on: 'change',
@@ -47,12 +55,9 @@
                     },
                     onComplete: function () {
                         $container.removeClass('loading');
-                    }
-                });
-
-                $('.ui.fluid.selection.radio.checkbox').checkbox({
-                    onChecked: function () { $container.show(); },
-                    onUnchecked: function () { $container.hide(); }
+                    },
+                    onChecked: function () { $container.find('.item').show(); },
+                    onUnchecked: function () { $container.find('.item').hide(); }
                 });
             });
         }
@@ -61,6 +66,7 @@
     function removePickupPoints($container) {
         $container.find('.pickup-points').remove();
         $container.find('.item').remove();
+        $container.find('.element').remove();
     }
 
     function addPickupPoints($container, pickupPoints) {
@@ -70,8 +76,8 @@
 
             pickupPoints.forEach(function (element) {
                 list += '<div class="item" data-value="' + element.id + '">';
-                list += '<input type="radio" name="pickupPoint">';
-                list += '<label>';
+                list += '<input type="radio" name="pickupPoint" id="' + element.id + '">';
+                list += '<label for="' + element.id + '">';
                 list += ' ' + element.name + '<br>';
                 list += ' ' + element.address + '<br>';
                 list += ' ' + element.zipCode;
